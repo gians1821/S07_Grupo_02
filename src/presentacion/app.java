@@ -6,6 +6,7 @@ package presentacion;
  */
 public class app {
   public static void main(String[] args) {
-      System.out.println("Holaaaa");
+    System.out.println("Holaaaa");
+    System.out.println("Adios");
   }
 }
