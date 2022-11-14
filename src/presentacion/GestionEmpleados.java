@@ -48,7 +48,7 @@ public class GestionEmpleados {
           contratado.setNombre(sc.nextLine());
           System.out.print("Apellido: ");
           contratado.setApellido(sc.nextLine());
-          System.out.print("Genero: ");
+          System.out.print("Genero (0-Masculino 1-Femenino): ");
           contratado.setGenero(sc.nextInt());
           System.out.print("Salario: ");
           contratado.setSalario(sc.nextFloat());
@@ -79,7 +79,7 @@ public class GestionEmpleados {
           ADestajo.setNombre(sc.nextLine());
           System.out.print("Apellido: ");
           ADestajo.setApellido(sc.nextLine());
-          System.out.print("Genero: ");
+          System.out.print("Genero (0-Masculino 1-Femenino): ");
           ADestajo.setGenero(sc.nextInt());
           System.out.print("Salario: ");
           ADestajo.setSalario(sc.nextFloat());
