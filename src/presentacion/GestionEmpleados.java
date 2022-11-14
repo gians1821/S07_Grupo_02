@@ -43,20 +43,15 @@ public class GestionEmpleados {
         case 1:
           Contratado contratado = new Contratado();
           System.out.print("\nDNI: ");
-          dni = sc.nextLine();
-          contratado.setDni(dni);
+          contratado.setDni(sc.nextLine());
           System.out.print("Nombre: ");
-          nombre = sc.nextLine();
-          contratado.setNombre(nombre);
+          contratado.setNombre(sc.nextLine());
           System.out.print("Apellido: ");
-          apellido = sc.nextLine();
-          contratado.setApellido(apellido);
+          contratado.setApellido(sc.nextLine());
           System.out.print("Genero: ");
-          genero = sc.nextInt();
-          contratado.setGenero(genero);
+          contratado.setGenero(sc.nextInt());
           System.out.print("Salario: ");
-          salario = sc.nextFloat();
-          contratado.setSalario(salario);
+          contratado.setSalario(sc.nextFloat());
           System.out.print("Fecha de nacimiento\n\tDia: ");
           diaN = sc.nextInt();
           System.out.print("\tMes: ");
