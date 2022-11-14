@@ -46,7 +46,7 @@ public class ADestajo extends Empleado implements Descuentos {
   }
   
   public float getSueldoNeto() {
-    return getSalario() + getMontoComision() - getDescuentoPorFaltas() - getDescuentoPorTardanzas();
+    return getSalario() + getMontoComision();
   }
   
   public String getListadoVentas() {
