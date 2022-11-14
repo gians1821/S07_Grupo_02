@@ -2,20 +2,81 @@ package presentacion;
 
 import entidades.*;
 import datos.*;
+import java.util.*;
 
 public class GestionEmpleados {
+  private static Scanner sc = new Scanner(System.in);
+    
+  public static int menu() {
+    String opcionesMenu = """
 
+                          1. Registrar Empleados contratados 
+                          2. 
+                          3. 
+                          4. 
+                          5. 
+                          6.
+                          7.
+                          8. Salir
+
+                          \tDigite opcion [1 - 8]: """;
+    int opcion;
+    do {
+      System.out.print("\n\n\tMenu principal\n\n" + opcionesMenu);
+      opcion = sc.nextInt();
+    } while (opcion < 1 || opcion > 8);
+    sc.nextLine();
+    return opcion;
+  }
+  
   public static void main(String[] args) {
-    Contratado contratado, contratado1, contratado2;
-    contratado = new Contratado();
-    contratado.setSalario(1000);
-    ListaContratados.setContratado(contratado);
-    contratado1 = new Contratado();
-    contratado1.setSalario(2000);
-    ListaContratados.setContratado(contratado1);
-    contratado2 = new Contratado();
-    contratado2.setSalario(3000);
-    ListaContratados.setContratado(contratado2);
-    System.out.println(ListaContratados.getListadoContratados());
+    Empleado empleado = new Empleado();
+    String dni, nombre, apellido;
+    int genero, diaI, mesI, añoI, diaN, mesN, añoN;
+    float salario;
+    Fecha fechaNacimiento, fechaIngreso;
+    int opcion;
+    System.out.println("\nDatos del equipo:\n" + empleado.toString());
+    do {
+      opcion = menu();
+      switch(opcion) {
+        case 1:
+          Contratado contratado = new Contratado();
+          System.out.print("\nDNI: ");
+          dni = sc.nextLine();
+          contratado.setDni(dni);
+          System.out.print("Nombre: ");
+          nombre = sc.nextLine();
+          contratado.setNombre(nombre);
+          System.out.print("Apellido: ");
+          apellido = sc.nextLine();
+          contratado.setApellido(apellido);
+          System.out.print("Genero: ");
+          genero = sc.nextInt();
+          contratado.setGenero(genero);
+          System.out.print("Salario: ");
+          salario = sc.nextFloat();
+          contratado.setSalario(salario);
+          System.out.print("Fecha de nacimiento\n\tDia: ");
+          diaN = sc.nextInt();
+          System.out.print("\tMes: ");
+          mesN = sc.nextInt();
+          System.out.print("\tAnio: ");
+          añoN = sc.nextInt();
+          fechaNacimiento = new Fecha(diaN, mesN, añoN);
+          contratado.setFechaNacimiento(fechaNacimiento);
+          System.out.print("Fecha de ingreso\n\tDia: ");
+          diaI = sc.nextInt();
+          System.out.print("\tMes: ");
+          mesI = sc.nextInt();
+          System.out.print("\tAnio: ");
+          añoI = sc.nextInt();
+          fechaIngreso = new Fecha(diaI, mesI, añoI);
+          contratado.setFechaIngreso(fechaIngreso);
+          System.out.println("\nDatos del equipo:\n" + contratado.toString());
+          ListaContratados.setContratado(contratado);
+          break;
+      }
+    }while(opcion != 8);
   }
 }
