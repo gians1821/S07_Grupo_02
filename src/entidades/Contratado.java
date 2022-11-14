@@ -56,15 +56,13 @@ public class Contratado extends Empleado implements Descuentos {
             + "\nSueldo neto: " + getSueldoNeto();
   }
 
-  // NECESITA CAMBIO 
   @Override
   public float getDescuentoPorFaltas() {
-    return 0.0f;
+    return 0.07f * SBASICO;
   }
 
-  // NECESITA CAMBIO 
   @Override
   public float getDescuentoPorTardanzas() {
-    return 0.0f;
+    return 0.03f * SBASICO;
   }
 }
