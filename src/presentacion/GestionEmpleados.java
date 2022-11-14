@@ -14,7 +14,7 @@ public class GestionEmpleados {
                           2. Registrar Empleados a Destajo
                           3. 
                           4. Registrar las ventas realizadas por los empleados a destajo
-                          5. 
+                          5. Listar los datos de los empleados contratados (mostrando sueldo neto)
                           6.
                           7.
                           8. Salir
@@ -70,6 +70,7 @@ public class GestionEmpleados {
           añoI = sc.nextInt();
           fechaIngreso = new Fecha(diaI, mesI, añoI);
           contratado.setFechaIngreso(fechaIngreso);
+          contratado.setPctjeAdicional();
           System.out.println("\nDatos del equipo:\n" + contratado.toString());
           ListaContratados.setContratado(contratado);
           break;
@@ -140,6 +141,10 @@ public class GestionEmpleados {
           } else {
             System.out.println("Empleado a destajo no encontrado ");
           }
+          break;
+        case 5:
+          System.out.println(ListaContratados.getListadoContratados());
+          break;
       }
     }while(opcion != 8);
   }
