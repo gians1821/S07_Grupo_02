@@ -11,7 +11,7 @@ public class GestionEmpleados {
     String opcionesMenu = """
 
                           1. Registrar Empleados contratados 
-                          2. 
+                          2. Registrar Empleados a Destajo
                           3. 
                           4. 
                           5. 
@@ -70,6 +70,37 @@ public class GestionEmpleados {
           contratado.setFechaIngreso(fechaIngreso);
           System.out.println("\nDatos del equipo:\n" + contratado.toString());
           ListaContratados.setContratado(contratado);
+          break;
+        case 2:
+          ADestajo ADestajo = new ADestajo();
+          System.out.print("\nDNI: ");
+          ADestajo.setDni(sc.nextLine());
+          System.out.print("Nombre: ");
+          ADestajo.setNombre(sc.nextLine());
+          System.out.print("Apellido: ");
+          ADestajo.setApellido(sc.nextLine());
+          System.out.print("Genero: ");
+          ADestajo.setGenero(sc.nextInt());
+          System.out.print("Salario: ");
+          ADestajo.setSalario(sc.nextFloat());
+          System.out.print("Fecha de nacimiento\n\tDia: ");
+          diaN = sc.nextInt();
+          System.out.print("\tMes: ");
+          mesN = sc.nextInt();
+          System.out.print("\tAnio: ");
+          añoN = sc.nextInt();
+          fechaNacimiento = new Fecha(diaN, mesN, añoN);
+          ADestajo.setFechaNacimiento(fechaNacimiento);
+          System.out.print("Fecha de ingreso\n\tDia: ");
+          diaI = sc.nextInt();
+          System.out.print("\tMes: ");
+          mesI = sc.nextInt();
+          System.out.print("\tAnio: ");
+          añoI = sc.nextInt();
+          fechaIngreso = new Fecha(diaI, mesI, añoI);
+          ADestajo.setFechaIngreso(fechaIngreso);
+          System.out.println("\nDatos del equipo:\n" + ADestajo.toString());
+          ListaADestajo.setADestajo(ADestajo);
           break;
       }
     }while(opcion != 8);
