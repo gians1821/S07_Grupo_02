@@ -15,7 +15,7 @@ public class GestionEmpleados {
                           3. Registrar tardanzas o faltas
                           4. Registrar las ventas realizadas por los empleados a destajo
                           5. Listar los datos de los empleados contratados (mostrando sueldo neto)
-                          6. 
+                          6. Listar los datos de los empleados a destajo (mostrando sueldo neto)
                           7. Mostrar clientes de empleado a destajo
                           8. Salir
 
@@ -168,6 +168,7 @@ public class GestionEmpleados {
               System.out.print("Opcion elegida: ");
               op = sc.nextInt();
             } while (op != 1 && op != 2);
+            sc.nextLine();
             if (op == 1) {
               // FALTAS - A DESTAJO
               System.out.print("Digite dni del empleado a destajo: ");
@@ -247,6 +248,9 @@ public class GestionEmpleados {
           break;
         case 5:
           System.out.println(ListaContratados.getListadoContratados());
+          break;
+        case 6:
+          System.out.println(ListaADestajo.getListadoADestajo());
           break;
         case 7:
           String dniA;
