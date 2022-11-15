@@ -46,7 +46,7 @@ public class ADestajo extends Empleado implements Descuentos {
   }
   
   public float getSueldoNeto() {
-    return getSalario() + getMontoComision();
+    return getSalario() + getMontoComision() - (nroFaltas * getDescuentoPorFaltas()) - (nroTardanzas * getDescuentoPorTardanzas());
   }
   
   public String getListadoVentas() {
@@ -61,8 +61,8 @@ public class ADestajo extends Empleado implements Descuentos {
     return super.toString() + 
             "\nMonto total de ventas: " + getMontoTotalVentas() +
             "\nMonto comision: " + getMontoComision() +
-            "\nDescuento por faltas: " + getDescuentoPorFaltas() +
-            "\nDescuento por tardanzas: " + getDescuentoPorTardanzas() +
+            "\nDescuento por faltas: " + (nroFaltas * getDescuentoPorFaltas()) +
+            "\nDescuento por tardanzas: " + (nroTardanzas * getDescuentoPorTardanzas()) +
             "\nSueldo neto: " + getSueldoNeto();
   }
 

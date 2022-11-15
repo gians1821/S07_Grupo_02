@@ -47,12 +47,14 @@ public class Contratado extends Empleado implements Descuentos {
   }
 
   public float getSueldoNeto() {
-    return getSalario() + getMontoAdicional();
+    return getSalario() + getMontoAdicional() - (nroFaltas * getDescuentoPorFaltas()) - (nroTardanzas * getDescuentoPorTardanzas());
   }
 
   @Override
   public String toString() {
     return super.toString() + "\n% adicional: " + getPctjeAdicional()
+            + "\nDescuento por faltas: " + (nroFaltas * getDescuentoPorFaltas())
+            + "\nDescuento por tardanzas: " + (nroTardanzas * getDescuentoPorTardanzas())
             + "\nSueldo neto: " + getSueldoNeto();
   }
 

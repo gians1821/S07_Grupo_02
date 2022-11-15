@@ -8,6 +8,8 @@ public class Empleado {
   private float salario;
   private Fecha fechaNacimiento;
   private Fecha fechaIngreso;
+  protected int nroFaltas = 0;
+  protected int nroTardanzas = 0;
 
   public Empleado() {
     dni = "00000000";
@@ -55,7 +57,15 @@ public class Empleado {
 
   public void setFechaIngreso(Fecha fechaIngreso) {
     this.fechaIngreso = fechaIngreso;
-  }    
+  }
+
+  public void setNroFaltas(int nroFaltas) {
+    this.nroFaltas = nroFaltas;
+  }
+
+  public void setNroTardanzas(int nroTardanzas) {
+    this.nroTardanzas = nroTardanzas;
+  }
 
   public String getDni() {
     return dni;
@@ -93,6 +103,14 @@ public class Empleado {
     return fechaActual.getAño() - fechaIngreso.getAño();
   }
 
+  public int getNroFaltas() {
+    return nroFaltas;
+  }
+
+  public int getNroTardanzas() {
+    return nroTardanzas;
+  }
+
   @Override
   public String toString() {
     return "\nNumero de DNI: " + getDni() +
@@ -100,6 +118,8 @@ public class Empleado {
             "\nGenero: " + getGenero() +
             "\nFecha de nacimiento: " + getFechaNacimiento().toString() +
             "\nSalario mensual: " + getSalario() +
-            "\nFecha de ingreso: " + getFechaIngreso().toString();
+            "\nFecha de ingreso: " + getFechaIngreso().toString() +
+            "\nNro de faltas: " + getNroFaltas() +
+            "\nNro de tardanzas: " + getNroTardanzas();
   }    
 }
