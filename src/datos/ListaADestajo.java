@@ -36,4 +36,13 @@ public class ListaADestajo {
         }
         return contenido;
     }
+    
+    public static void busquedaDNI(String dni){
+        int i;
+        for(i = 0; i<posicion; i++){
+            if((listaA[i].getDni().compareTo(dni)) == 0){
+                System.out.println("Los clientes del empeleado a destajo son:\n\t" + getListadoADestajo());
+            }
+        }
+    }
 }

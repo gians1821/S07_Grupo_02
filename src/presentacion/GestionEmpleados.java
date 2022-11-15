@@ -15,8 +15,8 @@ public class GestionEmpleados {
                           3. 
                           4. Registrar las ventas realizadas por los empleados a destajo
                           5. Listar los datos de los empleados contratados (mostrando sueldo neto)
-                          6.
-                          7.
+                          6. 
+                          7. Mostrar clientes de empleado a destajo
                           8. Salir
 
                           \tDigite opcion [1 - 8]: """;
@@ -110,12 +110,11 @@ public class GestionEmpleados {
           dni = sc.nextLine();
           int v = 0;
           int p = 0;
-          for(int i = 0; i<=ListaADestajo.getPosicion();i++){
+          for(int i = 0; i<=ListaADestajo.getPosicion();i++)
             if(ListaADestajo.getADestajo(i).getDni().compareTo(dni)==0){
               v = 1;
               p = i;
             }
-          }
           if(v == 1) {
             System.out.println("Digite fecha de venta\n\tDia : ");
             diaV = sc.nextInt();
@@ -138,12 +137,19 @@ public class GestionEmpleados {
             String numDoc = sc.nextLine();
             ventaA = new Venta(numDoc , fechaVenta , clienteA, monto);
             ListaADestajo.getADestajo(p).setVenta(ventaA);
-          } else {
+          } else
             System.out.println("Empleado a destajo no encontrado ");
-          }
           break;
         case 5:
           System.out.println(ListaContratados.getListadoContratados());
+          break;
+        case 7:
+          String dniA;
+          System.out.print("\nDigite el DNI del empleado: ");
+          dniA = sc.nextLine();
+          for(int i = 0; i<ListaADestajo.getPosicion(); i++)
+            if((ListaADestajo.getADestajo(i).getDni().compareTo(dniA)) == 0)
+              System.out.println(ListaADestajo.getListadoADestajo());
           break;
       }
     }while(opcion != 8);
