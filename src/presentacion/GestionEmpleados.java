@@ -12,7 +12,7 @@ public class GestionEmpleados {
 
                           1. Registrar Empleados contratados 
                           2. Registrar Empleados a Destajo
-                          3. 
+                          3. Registrar tardanzas o faltas
                           4. Registrar las ventas realizadas por los empleados a destajo
                           5. Listar los datos de los empleados contratados (mostrando sueldo neto)
                           6. 
@@ -29,15 +29,18 @@ public class GestionEmpleados {
     return opcion;
   }
   
+  public static void busquedaContratado() {
+    
+  }
+  
   public static void main(String[] args) {
     Empleado empleado = new Empleado();
     String dni, nombre, apellido;
-    int genero, diaI, mesI, añoI, diaN, mesN, añoN, diaV, mesV, añoV;
-    float salario;
+    int diaI, mesI, añoI, diaN, mesN, añoN, diaV, mesV, añoV;
     Fecha fechaNacimiento, fechaIngreso, fechaVenta;
     Cliente clienteA;
     Venta ventaA;
-    int opcion;
+    int opcion, op;
     do {
       opcion = menu();
       switch(opcion) {
@@ -101,6 +104,110 @@ public class GestionEmpleados {
           fechaIngreso = new Fecha(diaI, mesI, añoI);
           ADestajo.setFechaIngreso(fechaIngreso);
           ListaADestajo.setADestajo(ADestajo);
+          break;
+        case 3:
+          System.out.println("\n========== REGISTRAR TARDANZAS O FALTAS ==========");
+          System.out.println("1. Empleado contratado");
+          System.out.println("2. Empleado a destajo");
+          do {
+            System.out.print("Opcion elegida: ");
+            op = sc.nextInt();
+          } while (op != 1 && op != 2);
+          if (op == 1) {
+            System.out.println("1. Registrar faltas");
+            System.out.println("2. Registrar tardanzas");
+            do {
+              System.out.print("Opcion elegida: ");
+              op = sc.nextInt();
+            } while (op != 1 && op != 2);
+            sc.nextLine();
+            if (op == 1) {
+              // FALTAS - CONTRATADO
+              System.out.print("Digite dni del empleado contratado: ");
+              dni = sc.nextLine();
+              int v = 0;
+              int p = 0;
+              for (int i = 0; i <= ListaContratados.getPosicion(); i++) {
+                if(ListaContratados.getContratado(i).getDni().compareTo(dni)==0){
+                  v = 1;
+                  p = i;
+                }
+              }
+              if (v == 1) {
+                System.out.print("Numero de faltas: ");
+                ListaContratados.getContratado(p).setNroFaltas(sc.nextInt());
+                System.out.println("Faltas registradas");
+              } else {
+                System.out.println("Empleado contratado no encontrado");
+              }
+            } else {
+              // TARDANZAS - CONTRATADO
+              System.out.print("Digite dni del empleado contratado: ");
+              dni = sc.nextLine();
+              int v = 0;
+              int p = 0;
+              for (int i = 0; i <= ListaContratados.getPosicion(); i++) {
+                if(ListaContratados.getContratado(i).getDni().compareTo(dni)==0){
+                  v = 1;
+                  p = i;
+                }
+              }
+              if (v == 1) {
+                System.out.print("Numero de tardanzas: ");
+                ListaContratados.getContratado(p).setNroTardanzas(sc.nextInt());
+                System.out.println("Tardanzas registradas");
+              } else {
+                System.out.println("Empleado contratado no encontrado");
+              }
+            }
+          } else {
+            System.out.println("1. Registrar faltas");
+            System.out.println("2. Registrar tardanzas");
+            sc.nextLine();
+            do {
+              System.out.print("Opcion elegida: ");
+              op = sc.nextInt();
+            } while (op != 1 && op != 2);
+            if (op == 1) {
+              // FALTAS - A DESTAJO
+              System.out.print("Digite dni del empleado a destajo: ");
+              dni = sc.nextLine();
+              int v = 0;
+              int p = 0;
+              for (int i = 0; i <= ListaADestajo.getPosicion(); i++) {
+                if(ListaADestajo.getADestajo(i).getDni().compareTo(dni)==0){
+                  v = 1;
+                  p = i;
+                }
+              }
+              if (v == 1) {
+                System.out.print("Numero de faltas: ");
+                ListaADestajo.getADestajo(p).setNroFaltas(sc.nextInt());
+                System.out.println("Faltas registradas");
+              } else {
+                System.out.println("Empleado a destajo no encontrado");
+              }
+            } else {
+              // TARDANZAS - A DESTAJO
+              System.out.print("Digite dni del empleado a destajo: ");
+              dni = sc.nextLine();
+              int v = 0;
+              int p = 0;
+              for (int i = 0; i <= ListaADestajo.getPosicion(); i++) {
+                if(ListaADestajo.getADestajo(i).getDni().compareTo(dni)==0){
+                  v = 1;
+                  p = i;
+                }
+              }
+              if (v == 1) {
+                System.out.print("Numero de tardanzas: ");
+                ListaADestajo.getADestajo(p).setNroTardanzas(sc.nextInt());
+                System.out.println("Tardanzas registradas");
+              } else {
+                System.out.println("Empleado a destajo no encontrado");
+              }
+            }
+          }
           break;
         case 4:
           System.out.print("\n\nDigite DNI del Empleado a destajo: ");
