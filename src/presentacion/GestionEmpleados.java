@@ -19,10 +19,10 @@ public class GestionEmpleados {
                           7. Mostrar clientes de empleado a destajo
                           8. Salir
 
-                          \tDigite opcion [1 - 8]: """;
+                          \tDigite opcion [1 - 8]:""";
     int opcion;
     do {
-      System.out.print("\n\n\tMenu principal\n\n" + opcionesMenu);
+      System.out.print("\n\n\tMenu principal\n\n" + opcionesMenu + " ");
       opcion = sc.nextInt();
     } while (opcion < 1 || opcion > 8);
     sc.nextLine();
@@ -38,7 +38,6 @@ public class GestionEmpleados {
     Cliente clienteA;
     Venta ventaA;
     int opcion;
-    System.out.println("\nDatos del equipo:\n" + empleado.toString());
     do {
       opcion = menu();
       switch(opcion) {
@@ -71,7 +70,6 @@ public class GestionEmpleados {
           fechaIngreso = new Fecha(diaI, mesI, añoI);
           contratado.setFechaIngreso(fechaIngreso);
           contratado.setPctjeAdicional();
-          System.out.println("\nDatos del equipo:\n" + contratado.toString());
           ListaContratados.setContratado(contratado);
           break;
         case 2:
@@ -102,11 +100,10 @@ public class GestionEmpleados {
           añoI = sc.nextInt();
           fechaIngreso = new Fecha(diaI, mesI, añoI);
           ADestajo.setFechaIngreso(fechaIngreso);
-          System.out.println("\nDatos del equipo:\n" + ADestajo.toString());
           ListaADestajo.setADestajo(ADestajo);
           break;
         case 4:
-          System.out.println("Digite DNI del Empleado a destajo: ");
+          System.out.print("\n\nDigite DNI del Empleado a destajo: ");
           dni = sc.nextLine();
           int v = 0;
           int p = 0;
@@ -116,7 +113,7 @@ public class GestionEmpleados {
               p = i;
             }
           if(v == 1) {
-            System.out.println("Digite fecha de venta\n\tDia : ");
+            System.out.print("\nDigite fecha de venta\n\tDia: ");
             diaV = sc.nextInt();
             System.out.print("\tMes: ");
             mesV = sc.nextInt();
@@ -124,16 +121,17 @@ public class GestionEmpleados {
             añoV = sc.nextInt();
             fechaVenta = new Fecha(diaV, mesV, añoV);
             sc.nextLine();
-            System.out.println("Digite datos de cliente\n\tDNI : ");
+            System.out.print("\nDigite datos de cliente\n\tDNI: ");
             String dniCliente = sc.nextLine();
             System.out.print("\tNombre: ");
             nombre = sc.nextLine();
             System.out.print("\tApellido: ");
             apellido = sc.nextLine();
             clienteA = new Cliente(dniCliente,nombre,apellido);
-            System.out.println("\tDigite monto de venta: ");
+            System.out.print("\tDigite monto de venta: ");
             float monto = sc.nextFloat();
-            System.out.println("Digite numero de documento de venta: ");
+            sc.nextLine();
+            System.out.print("Digite numero de documento de venta: ");
             String numDoc = sc.nextLine();
             ventaA = new Venta(numDoc , fechaVenta , clienteA, monto);
             ListaADestajo.getADestajo(p).setVenta(ventaA);
@@ -147,9 +145,9 @@ public class GestionEmpleados {
           String dniA;
           System.out.print("\nDigite el DNI del empleado: ");
           dniA = sc.nextLine();
-          for(int i = 0; i<ListaADestajo.getPosicion(); i++)
+          for(int i = 0; i<=ListaADestajo.getPosicion(); i++)
             if((ListaADestajo.getADestajo(i).getDni().compareTo(dniA)) == 0)
-              System.out.println(ListaADestajo.getListadoADestajo());
+              System.out.println(ListaADestajo.getADestajo(i).getListadoVentas());
           break;
       }
     }while(opcion != 8);
