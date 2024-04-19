@@ -14,12 +14,12 @@ public class Contratado extends Empleado implements Descuentos {
     pctjeAdicional = 0.0f;        
   }
 
-  public Contratado(String dni, String nombre, String apellido, int genero, float salario, Fecha fechaNacimiento, Fecha fechaIngreso, float pctjeAdicional) {
+  public Contratado(String dni, String nombre, String apellido, String genero, float salario, Fecha fechaNacimiento, Fecha fechaIngreso) {
     super(dni, nombre, apellido, genero, salario, fechaNacimiento, fechaIngreso);
     setPctjeAdicional();
   }
 
-  public void setPctjeAdicional() {
+  public final void setPctjeAdicional() {
     GregorianCalendar fechaHoy = new GregorianCalendar();
     int dia, mes, año, añosAntg;
     Fecha fechaActual;
@@ -28,11 +28,11 @@ public class Contratado extends Empleado implements Descuentos {
     año = fechaHoy.get(Calendar.YEAR);
     fechaActual = new Fecha(dia, mes, año);
     añosAntg = getAntiguedad(fechaActual);
-    if(añosAntg <= 3)
+    if (añosAntg <= 3)
       pctjeAdicional = PCTJE3;
-    else if(añosAntg <= 7)
+    else if (añosAntg <= 7)
       pctjeAdicional = PCTJE7;
-    else if(añosAntg <= 15)
+    else if (añosAntg <= 15)
       pctjeAdicional = PCTJE15;
     else
       pctjeAdicional = PCTJE16;

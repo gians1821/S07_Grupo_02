@@ -2,9 +2,11 @@
 <project xmlns="http://www.netbeans.org/ns/project/1">
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
+        <buildExtensions xmlns="http://www.netbeans.org/ns/ant-build-extender/1"/>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
             <name>sistema-gestion-empleados</name>
             <source-roots>
+                <root id="src.web.dir"/>
                 <root id="src.dir"/>
             </source-roots>
             <test-roots>

@@ -1,5 +1,8 @@
 package presentacion;
 
+import entidades.Empleado;
+import java.util.ArrayList;
+
 public class RegistroEmpleadoFrame extends javax.swing.JFrame {
 
     /**
@@ -19,87 +22,145 @@ public class RegistroEmpleadoFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        txtCategoria = new javax.swing.ButtonGroup();
+        bg = new javax.swing.JPanel();
+        txtNacimiento = new javax.swing.JTextField();
+        txtDni = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
+        txtGenero = new javax.swing.JComboBox<>();
+        txtApellido = new javax.swing.JTextField();
+        txtSalario = new javax.swing.JTextField();
+        formato1 = new javax.swing.JLabel();
+        txtIngreso = new javax.swing.JTextField();
+        formato2 = new javax.swing.JLabel();
+        title = new javax.swing.JLabel();
+        btnMenu = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+        txtADestajo = new javax.swing.JRadioButton();
+        txtContratado = new javax.swing.JRadioButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registro de Empleado");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBorder(javax.swing.BorderFactory.createTitledBorder("Fecha de nacimiento"));
-        jTextField1.setPreferredSize(new java.awt.Dimension(150, 50));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
+        txtNacimiento.setBorder(javax.swing.BorderFactory.createTitledBorder("Fecha de nacimiento"));
+        txtNacimiento.setPreferredSize(new java.awt.Dimension(150, 50));
+        bg.add(txtNacimiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
 
-        jTextField2.setBorder(javax.swing.BorderFactory.createTitledBorder("DNI"));
-        jTextField2.setPreferredSize(new java.awt.Dimension(100, 50));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+        txtDni.setBorder(javax.swing.BorderFactory.createTitledBorder("DNI"));
+        txtDni.setPreferredSize(new java.awt.Dimension(100, 50));
+        bg.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
 
-        jTextField3.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre"));
-        jTextField3.setPreferredSize(new java.awt.Dimension(150, 50));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, -1, -1));
+        txtNombre.setBorder(javax.swing.BorderFactory.createTitledBorder("Nombre"));
+        txtNombre.setPreferredSize(new java.awt.Dimension(150, 50));
+        bg.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
-        jComboBox1.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo"));
-        jComboBox1.setPreferredSize(new java.awt.Dimension(150, 50));
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
+        txtGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Femenino" }));
+        txtGenero.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo"));
+        txtGenero.setPreferredSize(new java.awt.Dimension(150, 50));
+        bg.add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
-        jTextField4.setBorder(javax.swing.BorderFactory.createTitledBorder("Apellido"));
-        jTextField4.setPreferredSize(new java.awt.Dimension(150, 50));
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, -1, -1));
+        txtApellido.setBorder(javax.swing.BorderFactory.createTitledBorder("Apellido"));
+        txtApellido.setPreferredSize(new java.awt.Dimension(150, 50));
+        bg.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, -1));
 
-        jTextField5.setBorder(javax.swing.BorderFactory.createTitledBorder("Salario"));
-        jTextField5.setPreferredSize(new java.awt.Dimension(150, 50));
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
+        txtSalario.setBorder(javax.swing.BorderFactory.createTitledBorder("Salario"));
+        txtSalario.setPreferredSize(new java.awt.Dimension(150, 50));
+        bg.add(txtSalario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, -1, -1));
 
-        jLabel1.setForeground(java.awt.SystemColor.textInactiveText);
-        jLabel1.setText("Formato: dd-mm-yyyy");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, -1, -1));
+        formato1.setForeground(java.awt.SystemColor.textInactiveText);
+        formato1.setText("Formato: dd-mm-yyyy");
+        bg.add(formato1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
-        jTextField6.setBorder(javax.swing.BorderFactory.createTitledBorder("Fecha de ingreso"));
-        jTextField6.setPreferredSize(new java.awt.Dimension(150, 50));
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, -1, -1));
+        txtIngreso.setBorder(javax.swing.BorderFactory.createTitledBorder("Fecha de ingreso"));
+        txtIngreso.setPreferredSize(new java.awt.Dimension(150, 50));
+        bg.add(txtIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, -1, -1));
 
-        jLabel2.setForeground(java.awt.SystemColor.textInactiveText);
-        jLabel2.setText("Formato: dd-mm-yyyy");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
+        formato2.setForeground(java.awt.SystemColor.textInactiveText);
+        formato2.setText("Formato: dd-mm-yyyy");
+        bg.add(formato2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("REGISTRO DE EMPLEADO");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 90));
+        title.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        title.setText("REGISTRO DE EMPLEADO");
+        bg.add(title, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 90));
 
-        jButton1.setText("REGISTRAR");
-        jButton1.setPreferredSize(new java.awt.Dimension(100, 30));
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, -1, -1));
+        btnMenu.setText("MENÚ");
+        btnMenu.setPreferredSize(new java.awt.Dimension(120, 30));
+        btnMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionPerformed(evt);
+            }
+        });
+        bg.add(btnMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 500));
+        btnRegistrar.setText("REGISTRAR");
+        btnRegistrar.setPreferredSize(new java.awt.Dimension(120, 30));
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
+        bg.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, -1, -1));
+
+        txtCategoria.add(txtADestajo);
+        txtADestajo.setText("A Destajo");
+        txtADestajo.setActionCommand("a-destajo");
+        bg.add(txtADestajo, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 90, -1));
+
+        txtCategoria.add(txtContratado);
+        txtContratado.setText("Contratado");
+        txtContratado.setActionCommand("contratado");
+        bg.add(txtContratado, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, -1, -1));
+        bg.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 430, 320, -1));
+
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionPerformed
+        new MainFrame().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        try {
+            logica.RegistroEmpleado.registrar(
+                    txtDni.getText(),
+                    txtNombre.getText(),
+                    txtApellido.getText(),
+                    txtGenero.getSelectedItem().toString(),
+                    txtSalario.getText(),
+                    txtNacimiento.getText(),
+                    txtIngreso.getText(),
+                    txtCategoria.getSelection().getActionCommand()
+            );
+        } catch (Exception e) {
+            System.out.println(e);
+        }  
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JPanel bg;
+    private javax.swing.JButton btnMenu;
+    private javax.swing.JButton btnRegistrar;
+    private javax.swing.JLabel formato1;
+    private javax.swing.JLabel formato2;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel title;
+    private javax.swing.JRadioButton txtADestajo;
+    private javax.swing.JTextField txtApellido;
+    private javax.swing.ButtonGroup txtCategoria;
+    private javax.swing.JRadioButton txtContratado;
+    private javax.swing.JTextField txtDni;
+    private javax.swing.JComboBox<String> txtGenero;
+    private javax.swing.JTextField txtIngreso;
+    private javax.swing.JTextField txtNacimiento;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtSalario;
     // End of variables declaration//GEN-END:variables
 }

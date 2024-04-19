@@ -1,12 +1,11 @@
 package presentacion;
 
-
-import presentacion.RegistroEmpleadoFrame;
+import datos.ConnectionToSQLite;
 
 public class Main {
     
     public static void main(String[] args) {
-        new RegistroEmpleadoFrame().setVisible(true);
+        new MainFrame().setVisible(true);
     }
     
 }

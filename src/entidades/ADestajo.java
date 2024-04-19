@@ -12,7 +12,7 @@ public class ADestajo extends Empleado implements Descuentos {
     posicion = -1;
   }
 
-  public ADestajo(String dni, String nombre, String apellido, int genero, float salario, Fecha fechaNacimiento, Fecha fechaIngreso) {
+  public ADestajo(String dni, String nombre, String apellido, String genero, float salario, Fecha fechaNacimiento, Fecha fechaIngreso) {
     super(dni, nombre, apellido, genero, salario, fechaNacimiento, fechaIngreso);
     listaVentas = new Venta[TAM];
     posicion = -1;

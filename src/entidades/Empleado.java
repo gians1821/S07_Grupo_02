@@ -4,7 +4,7 @@ public class Empleado {
   private String dni;
   private String nombre;
   private String apellido;
-  private int genero;
+  private String genero;
   private float salario;
   private Fecha fechaNacimiento;
   private Fecha fechaIngreso;
@@ -15,13 +15,13 @@ public class Empleado {
     dni = "00000000";
     nombre = "NN";
     apellido = "NA";
-    genero = 0;
+    genero = "NG";
     salario = 0.0f;
     fechaNacimiento = new Fecha();
     fechaIngreso = new Fecha();
   }
 
-  public Empleado(String dni, String nombre, String apellido, int genero, float salario, Fecha fechaNacimiento, Fecha fechaIngreso) {
+  public Empleado(String dni, String nombre, String apellido, String genero, float salario, Fecha fechaNacimiento, Fecha fechaIngreso) {
     this.dni = dni;
     this.nombre = nombre;
     this.apellido = apellido;
@@ -43,7 +43,7 @@ public class Empleado {
     this.apellido = apellido;
   }   
 
-  public void setGenero(int genero) {
+  public void setGenero(String genero) {
     this.genero = genero;
   }    
 
@@ -79,7 +79,7 @@ public class Empleado {
     return apellido;
   }
 
-  public int getGenero() {
+  public String getGenero() {
     return genero;
   }
 

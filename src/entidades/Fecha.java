@@ -10,6 +10,13 @@ public class Fecha {
     mes = 1;
     año = 1000;
   }
+  
+  public Fecha(String fecha) {
+      String[] date = fecha.split("-");
+      this.dia = Integer.parseInt(date[0]);
+      this.mes = Integer.parseInt(date[1]);
+      this.año = Integer.parseInt(date[2]);
+  }
 
   public Fecha(int dia, int mes, int año) {
     this.dia = dia;
